@@ -38,7 +38,29 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 3")
+    x = 0
+    y = 0
+    while True:
+        print('CIMA 5\nBAIXO 4\nESQUERDA 3\nDIREITA 2\nNão digite e aperte enter para ver a posição final\nPosição inicial(x,y): (0,0)')
+        direcao = str(input('Digite a direção: '))
+        if direcao == "":
+            print('a posição final é: (',x,',',y,')')
+            break
+        direcaoo = float(direcao)
+        direcaoo = int(round(direcaoo))
+        if direcaoo == 5:
+            y = y + 1
+            print('(',x,',',y,')')
+        if direcaoo == 4:
+            y = y - 1
+            print('(',x,',',y,')')
+        if direcaoo == 3:
+            x = x - 1
+            print('(',x,',',y,')')
+        if direcaoo == 2:
+            x = x + 1
+            print('(',x,',',y,')')
+
 
 
     
