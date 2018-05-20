@@ -27,7 +27,21 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 2")
+    frase = str(input("Digite uma frase: "))
+    listo = frase.split()
+    contagem = len(listo)
+    check = []
+    for char in listo:
+        acho = False
+        for palavra in check:
+            if palavra[0] == char:
+                palavra[1] = palavra[1] + 1
+                acho = True
+        if not acho:
+            check.append([char, 1])
+    for palavra in check:
+    print('{}:{}'.format(palavra[0], palavra[1]))
+
 
 
 
