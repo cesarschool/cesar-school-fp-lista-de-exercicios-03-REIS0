@@ -34,7 +34,16 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 4")
+    soma = []
+    while True :
+        dados = str(input("Digite o nome,idade e pontuação separando por ',': "))
+        if dados == "":
+            print(ordem)
+            break
+        dados = dados.split(",")
+        if len(dados) == 3:
+            soma.append(tuple(dados))
+            ordem = sorted(soma, key=lambda s: (s[0], s[1], s[2]))
 
 
     
