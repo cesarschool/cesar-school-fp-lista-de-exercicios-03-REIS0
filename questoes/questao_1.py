@@ -29,32 +29,36 @@
 ##
 def main():
     usuario = str(input("Digite um nome de usuário: "))
-    logado = 0
-    isalpha = 0
-    isnumeric = 0
-    isupper = 0
-    desisto = 0
-    while logado == 0:
+    isalpha = False
+    isnumeric = False
+    isupper = False
+    outra = False
+    especial = False
+    com = False
+    desisto = []
+    while True:
         senha = str(input("1. Pelo menos uma letra entre [a-z]\n2. Pelo menos 1 número entre [0-9]\n3. Pelo menos uma letra entre [A-Z]\n4. Pelo menos 1 caractere de [$ # @]\n5. Comprimento mínimo da senha: 6\n6. Comprimento máximo da senha: 12\nDigite uma senha: "))
-        if senha.isalnum() == True:
-            for char in senha:
-                if char.isalpha() == True:
-                    isalpha = 1
+        if senha == "":
+            print(desisto)
+            break
+        for char in senha:
+            if char.isalpha() == True:
+                    isalpha = True
                     pass
-                if char.isnumeric() == True:
-                    isnumeric = 1
+            if char.isnumeric() == True:
+                    isnumeric = True
                     pass
-                if char.isupper() == True:
-                    isupper = 1
+            if char.isupper() == True:
+                    isupper = True
                     pass
-            if isalpha == 1 and isnumeric == 1 and isupper == 1:
-                logado = 1
-                desisto = 1
-                print('senha válida\nsua senha é:',senha)
-                break
-            elif desisto == 0:
-                print('senha inválida')
-    # ainda fazendo o resto, apenas testando o submit
+        if '@' in senha or '#' in senha or '$' in senha :
+                especial = True
+                pass
+        if isalpha and isnumeric and isupper and especial and len(senha)-senha.count(' ') <= 12 and len(senha)-senha.count(' ') >= 6 :
+                outra = True
+                pass
+        if outra :
+            desisto.append(senha)
 
 
 if __name__ == '__main__':
