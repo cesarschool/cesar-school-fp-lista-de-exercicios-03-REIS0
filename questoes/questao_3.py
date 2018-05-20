@@ -38,30 +38,46 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    x = 0
-    y = 0
-    while True:
-        print('CIMA 5\nBAIXO 4\nESQUERDA 3\nDIREITA 2\nNão digite e aperte enter para ver a posição final\nPosição inicial(x,y): (0,0)')
-        direcao = str(input('Digite a direção: '))
-        if direcao == "":
-            print('a posição final é: (',x,',',y,')')
-            break
-        direcaoo = float(direcao)
-        direcaoo = int(round(direcaoo))
-        if direcaoo == 5:
-            y = y + 1
-            print('(',x,',',y,')')
-        if direcaoo == 4:
-            y = y - 1
-            print('(',x,',',y,')')
-        if direcaoo == 3:
-            x = x - 1
-            print('(',x,',',y,')')
-        if direcaoo == 2:
-            x = x + 1
-            print('(',x,',',y,')')
-
-
+   while True :
+    direcao = str(input('Digite a direção do robo para CIMA,BAIXO,ESQUERDA E DIREITA, e junto o número de passos(aperte enter para ver o resultado final)\nExemplo:\nDIREITA 5\nDigite as direções: '))
+    for palavra in direcao:
+        ako = direcao.split()
+        cb = []
+        ed = []
+        if "CIMA" in ako or "BAIXO" in ako:
+            cb.append(ako)
+            for pato in cb:
+                if "CIMA" in cb:
+                    j = float(cb[0][1])
+                    x = round(j)
+                if "BAIXO" in cb:
+                    t = float(cb[0][1])
+                    y = round(t)
+        if "ESQUERDA" in direcao or "DIRETA" in direcao:
+            ed.append(ako)
+            for peixe in ed:
+                if "ESQUERDA" in ed:
+                    b = float(ed[0][1])
+                    d = round(b)
+                if "DIRETA" in ed:
+                    p = float(ed[0][1])
+                    f = round(p)
+    if direcao == "":
+        n = x - y
+        m = y - x
+        h = d - f
+        k = f - d
+        if n > h or n > k or m > h or m > k:
+            if m > n:
+                print(m)
+            if n > m:
+                print(n)
+        if h > n or h > m or k > n or k > m:
+            if h > k:
+                print(h)
+            if k > h:
+                print(k)
+        break
 
     
 if __name__ == '__main__':
