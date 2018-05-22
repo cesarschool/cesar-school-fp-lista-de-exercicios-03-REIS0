@@ -45,7 +45,21 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 5")
+    ori = str(input("escreva um código somente com letras e o numero para rotacionar\nExemplo:ROT13 abc\nEscreva o códigoc: "))
+    list1 = ori.split()
+    final = []
+    if list1[1].isalpha() == True and 'ROT' in list1[0] and list1[0][3:].isdigit():
+        letras = []
+        for i in list1[1]:
+            letras.append(i)
+        numero = int(list1[0][3:])
+        for chara in letras:
+            posicao = ord(chara)
+            rotated = numero + posicao
+            final.append(chr(rotated))
+        print("".join(final))
+else:
+    print('ERROR')
 
 
     
